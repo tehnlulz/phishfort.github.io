@@ -1,0 +1,23 @@
+---
+layout: main
+title: "Blog Posts"
+description: "Blog posts released by PhishFort."
+---
+
+<section id="hero-section">
+  <div class="container hero fade-2">
+      <h1>Blog
+          <span class="red">Posts</span></h1>
+        <h3>Blog posts released by PhishFort</h3>
+        <p>
+      {% for item in site.blog %}
+        {% if item.url == '/blog/index.html' %}
+          {% continue %}
+        {% endif %}
+      <p>
+          <h3><a href="{{ item.url | remove:'.html'}}">{{ item.title }}</a> {{ item.description }} ({{ item.date | date_to_long_string }})</h3>
+      </p>
+      {% endfor %}
+    </p>
+  </div>
+</section>
